@@ -3,40 +3,40 @@ PODS:
   - boost-for-react-native (1.63.0)
   - CocoaAsyncSocket (7.6.4)
   - CocoaLibEvent (1.0.0)
-  - CrowdinSDK (1.0.6):
-    - CrowdinSDK/Core (= 1.0.6)
-    - CrowdinSDK/CrowdinProvider (= 1.0.6)
-  - CrowdinSDK/Core (1.0.6)
-  - CrowdinSDK/CrowdinAPI (1.0.6):
+  - CrowdinSDK (1.1.0):
+    - CrowdinSDK/Core (= 1.1.0)
+    - CrowdinSDK/CrowdinProvider (= 1.1.0)
+  - CrowdinSDK/Core (1.1.0)
+  - CrowdinSDK/CrowdinAPI (1.1.0):
     - BaseAPI (= 0.1.7)
-    - Starscream (~> 3.0.6)
-  - CrowdinSDK/CrowdinProvider (1.0.6):
+    - Starscream (~> 3.1.0)
+  - CrowdinSDK/CrowdinProvider (1.1.0):
     - CrowdinSDK/Core
     - CrowdinSDK/CrowdinAPI
-  - CrowdinSDK/IntervalUpdate (1.0.6):
+  - CrowdinSDK/IntervalUpdate (1.1.0):
     - CrowdinSDK/Core
     - CrowdinSDK/CrowdinAPI
     - CrowdinSDK/CrowdinProvider
-  - CrowdinSDK/LoginFeature (1.0.6):
+  - CrowdinSDK/LoginFeature (1.1.0):
     - BaseAPI (= 0.1.7)
     - CrowdinSDK/Core
     - CrowdinSDK/CrowdinAPI
     - CrowdinSDK/CrowdinProvider
-  - CrowdinSDK/RealtimeUpdate (1.0.6):
+  - CrowdinSDK/RealtimeUpdate (1.1.0):
     - CrowdinSDK/Core
     - CrowdinSDK/CrowdinAPI
     - CrowdinSDK/CrowdinProvider
     - CrowdinSDK/LoginFeature
-  - CrowdinSDK/RefreshLocalization (1.0.6):
+  - CrowdinSDK/RefreshLocalization (1.1.0):
     - CrowdinSDK/Core
     - CrowdinSDK/CrowdinAPI
     - CrowdinSDK/CrowdinProvider
-  - CrowdinSDK/Screenshots (1.0.6):
+  - CrowdinSDK/Screenshots (1.1.0):
     - CrowdinSDK/Core
     - CrowdinSDK/CrowdinAPI
     - CrowdinSDK/CrowdinProvider
     - CrowdinSDK/LoginFeature
-  - CrowdinSDK/Settings (1.0.6):
+  - CrowdinSDK/Settings (1.1.0):
     - CrowdinSDK/Core
     - CrowdinSDK/CrowdinAPI
     - CrowdinSDK/CrowdinProvider
@@ -339,7 +339,7 @@ PODS:
     - React-cxxreact (= 0.62.2)
     - React-jsi (= 0.62.2)
     - ReactCommon/callinvoker (= 0.62.2)
-  - Starscream (3.0.6)
+  - Starscream (3.1.1)
   - Yoga (1.14.0)
   - YogaKit (1.18.1):
     - Yoga (~> 1.14)
@@ -471,7 +471,7 @@ SPEC CHECKSUMS:
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
   CocoaAsyncSocket: 694058e7c0ed05a9e217d1b3c7ded962f4180845
   CocoaLibEvent: 2fab71b8bd46dd33ddb959f7928ec5909f838e3f
-  CrowdinSDK: aea72305afd9608bd36dcf86ba0ed7d777cb886a
+  CrowdinSDK: f317dc2296417e4dca3f588964658dc56f092761
   DoubleConversion: 5805e889d232975c086db112ece9ed034df7a0b2
   FBLazyVector: 4aab18c93cd9546e4bfed752b4084585eca8b245
   FBReactNativeSpec: 5465d51ccfeecb7faa12f9ae0024f2044ce4044e
@@ -505,10 +505,10 @@ SPEC CHECKSUMS:
   React-RCTText: fae545b10cfdb3d247c36c56f61a94cfd6dba41d
   React-RCTVibration: 4356114dbcba4ce66991096e51a66e61eda51256
   ReactCommon: ed4e11d27609d571e7eee8b65548efc191116eb3
-  Starscream: ef3ece99d765eeccb67de105bfa143f929026cf5
+  Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
   Yoga: 3ebccbdd559724312790e7742142d062476b698e
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
 PODFILE CHECKSUM: 56c2537f71f3f02200d6918c542a8e89a0b422fa
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.9.3
