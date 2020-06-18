@@ -61,16 +61,23 @@ RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD(localizationDictionaryForLanguage:(NSStri
     return [CrowdinSDK localizationDictionaryFor:language];
 }
 
+RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD(localizationDictionaryStringForLanguage:(NSString *)language) {
+    return [self stringFormDictionary:[CrowdinSDK localizationDictionaryFor:language]];
+}
+
 
 RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD(localizationDictionary) {
     return [CrowdinSDK localizationDictionary];
 }
 
-//RCT_EXPORT_METHOD(localizationWithCallback:(RCTPromiseResolveBlock)callback) {
-//    NSString *string = NSLocalizedString(key, nil);
-//    CrowdinSDK
-//    callback(string);
-//}
 
+RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD(localizationDictionaryString) {
+    return [self stringFormDictionary:[CrowdinSDK localizationDictionary]];
+}
+
+- (NSString *)stringFormDictionary:(NSDictionary *)dictionary {
+    NSData *data = [NSJSONSerialization dataWithJSONObject:dictionary options:NSJSONWritingPrettyPrinted error:nil];
+    return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+}
 
 @end
