@@ -52,26 +52,26 @@ RCT_EXPORT_METHOD(initWithHashString1:(NSString *)hashString sourceLanguage:(NSS
     }];
 }
 
-RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD(localizedStringForKey:(NSString *)key) {
+RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD(getStrings:(NSString *)key) {
     return NSLocalizedString(key, nil);
 }
 
 
-RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD(localizationDictionaryForLanguage:(NSString *)language) {
-    return [CrowdinSDK localizationDictionaryFor:language];
+RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD(getResourcesByLocale:(NSString *)locale) {
+    return [CrowdinSDK localizationDictionaryFor:locale];
 }
 
-RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD(localizationDictionaryStringForLanguage:(NSString *)language) {
+RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD(getResourcesDictionaryByLocale:(NSString *)language) {
     return [self stringFormDictionary:[CrowdinSDK localizationDictionaryFor:language]];
 }
 
 
-RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD(localizationDictionary) {
+RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD(getResourcesDictionary) {
     return [CrowdinSDK localizationDictionary];
 }
 
 
-RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD(localizationDictionaryString) {
+RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD(getResources) {
     return [self stringFormDictionary:[CrowdinSDK localizationDictionary]];
 }
 
