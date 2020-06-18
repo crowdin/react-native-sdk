@@ -39,17 +39,31 @@ RCT_EXPORT_METHOD(initWithHashString1:(NSString *)hashString sourceLanguage:(NSS
     
     [CrowdinSDK startWithConfig: config];
     
-    [CrowdinSDK addDownloadHandler:^{
+    __block NSUInteger downloadHandler;
+    downloadHandler = [CrowdinSDK addDownloadHandler:^{
         callback(@[@"Localization downloaded"]);
+        [CrowdinSDK removeDownloadHandler:downloadHandler];
     }];
     
-    [CrowdinSDK addErrorUpdateHandler:^(NSArray<NSError *> * _Nonnull errors) {
+    __block NSUInteger errorHandler;
+    errorHandler = [CrowdinSDK addErrorUpdateHandler:^(NSArray<NSError *> * _Nonnull errors) {
         callback(errors);
+        [CrowdinSDK removeErrorHandler:errorHandler];
     }];
 }
 
 RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD(localizedStringForKey:(NSString *)key) {
     return NSLocalizedString(key, nil);
+}
+
+
+RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD(localizationDictionaryForLanguage:(NSString *)language) {
+    return [CrowdinSDK localizationDictionaryFor:language];
+}
+
+
+RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD(localizationDictionary) {
+    return [CrowdinSDK localizationDictionary];
 }
 
 //RCT_EXPORT_METHOD(localizationWithCallback:(RCTPromiseResolveBlock)callback) {
