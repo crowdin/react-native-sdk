@@ -7,30 +7,18 @@ RCT_EXPORT_MODULE()
 
 RCT_EXPORT_METHOD(initWithHashString:(NSString *)hashString sourceLanguage:(NSString *)sourceLanguage callback:(RCTResponseSenderBlock)callback) {
     CrowdinProviderConfig *providerConfig = [[CrowdinProviderConfig alloc] initWithHashString:hashString sourceLanguage:sourceLanguage];
-    
-    CrowdinLoginConfig *loginConfig = [[CrowdinLoginConfig alloc] initWithClientId:@"test-sdk" clientSecret:@"79MG6E8DZfEeomalfnoKx7dA0CVuwtPC3jQTB3ts" scope:@"project" redirectURI:@"crowdintest://" organizationName:nil error:nil];
-    
     CrowdinSDKConfig *config = [[CrowdinSDKConfig config] withCrowdinProviderConfig:providerConfig];
-    
-    
-    config = [config withLoginConfig:loginConfig];
-    config = [config withSettingsEnabled:YES];
-    config = [config withRealtimeUpdatesEnabled:YES];
-    config = [config withScreenshotsEnabled:YES];
-    
-    
     [CrowdinSDK startWithConfig: config];
     [CrowdinSDK addDownloadHandler:^{
         callback(@[@"Localization downloaded"]);
     }];
-    
     [CrowdinSDK addErrorUpdateHandler:^(NSArray<NSError *> * _Nonnull errors) {
         callback(errors);
     }];
 }
 
 
-RCT_EXPORT_METHOD(initWithHashString:(NSString *)hashString sourceLanguage:(NSString *)sourceLanguage clientId:(NSString *)clientId clientSecret:(NSString *)clientSecret scope:(NSString *)scope redirectURI:(NSString *)redirectURI organizationName:(NSString *)organizationName callback:(RCTResponseSenderBlock)callback) {
+RCT_EXPORT_METHOD(initWithHashString1:(NSString *)hashString sourceLanguage:(NSString *)sourceLanguage clientId:(NSString *)clientId clientSecret:(NSString *)clientSecret scope:(NSString *)scope redirectURI:(NSString *)redirectURI organizationName:(NSString *)organizationName callback:(RCTResponseSenderBlock)callback) {
     CrowdinProviderConfig *providerConfig = [[CrowdinProviderConfig alloc] initWithHashString:hashString sourceLanguage:sourceLanguage];
     
     NSError *error = nil;
@@ -60,8 +48,8 @@ RCT_EXPORT_METHOD(initWithHashString:(NSString *)hashString sourceLanguage:(NSSt
     }];
 }
 
-RCT_EXPORT_METHOD(localizedStringForKey:(NSString *)key callback:(RCTPromiseResolveBlock)callback) {
-    callback(NSLocalizedString(key, nil));
+RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD(localizedStringForKey:(NSString *)key) {
+    return NSLocalizedString(key, nil);
 }
 
 //RCT_EXPORT_METHOD(localizationWithCallback:(RCTPromiseResolveBlock)callback) {

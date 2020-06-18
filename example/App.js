@@ -19,12 +19,11 @@ export default class App extends Component<{}> {
   };
   componentDidMount() {
     Crowdin.initWithHashString('2db137daf26d22bf499c998106i', 'en', (message) => {
-      Crowdin.localizedStringForKey('details_button', (string) => {
-        this.setState({
-          status: 'native callback received',
-          message: string
-        });
-      })
+      // print(message)
+      this.setState({
+        status: 'native callback received',
+        message: Crowdin.localizedStringForKey('details_button')
+      });
     })
 
       // print(Crowdin.localizedStringForKey('details_button'))
