@@ -52,7 +52,7 @@ RCT_EXPORT_METHOD(initWithHashString1:(NSString *)hashString sourceLanguage:(NSS
     }];
 }
 
-RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD(getStrings:(NSString *)key) {
+RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD(getString:(NSString *)key) {
     return NSLocalizedString(key, nil);
 }
 
