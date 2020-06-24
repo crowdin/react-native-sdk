@@ -73,6 +73,7 @@ repositories {
 dependencies {
     //noinspection GradleDynamicVersion
     implementation 'com.facebook.react:react-native:+'  // From node_modules
+    implementation 'com.crowdin.platform:mobile-sdk:1.1.4'
 }
 
 def configureReactNativePom(def pom) {
