@@ -9,20 +9,21 @@
  */
 
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View } from 'react-native';
+import { Platform, StyleSheet, Text, View, Button } from 'react-native';
 import Crowdin from 'react-native-crowdin';
 
 export default class App extends Component<{}> {
   state = {
     status: 'starting',
-    message: '--'
+    message: '--',
+    androidMessage: 'before get from Android'
   };
   componentDidMount() {
-    Crowdin.initWithHashString('2db137daf26d22bf499c998106i', 'en', (message) => {
+    Crowdin.initWithHashString('42dae90f4877fb6aba2acf876j9', 'en', (message) => {
       console.log(Crowdin.getResources)
       this.setState({
         status: 'native callback received',
-        message: Crowdin.getString('details_button')
+        message: Crowdin.getString('home')
       });
     })
 
@@ -45,6 +46,15 @@ export default class App extends Component<{}> {
         <Text style={styles.instructions}>STATUS: {this.state.status}</Text>
         <Text style={styles.welcome}>☆NATIVE CALLBACK MESSAGE☆</Text>
         <Text style={styles.instructions}>{this.state.message}</Text>
+
+        <Button
+            onPress={() => {
+              this.setState({ androidMessage: Crowdin.getString('home') });
+            }}
+            title={"Get Text from Android!"}
+          />
+
+        <Text style={styles.instructions}>{this.state.androidMessage}</Text>
       </View>
     );
   }
