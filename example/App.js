@@ -9,8 +9,10 @@
  */
 
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
+import { LocalizationProvider } from './LocalizationContext.js';
 import Crowdin from 'react-native-crowdin';
+import translations, { DEFAULT_LANGUAGE } from './translations';
 
 export default class App extends Component<{}> {
   state = {
@@ -19,43 +21,37 @@ export default class App extends Component<{}> {
     androidMessage: 'before get from Android'
   };
   componentDidMount() {
-    Crowdin.initWithHashString('42dae90f4877fb6aba2acf876j9', 'en', (message) => {
+    Crowdin.initWithHashString('42dae90f4877fb6aba2acf876j9', DEFAULT_LANGUAGE, (message) => {
       console.log(Crowdin.getResources)
       this.setState({
         status: 'native callback received',
         message: Crowdin.getString('home')
       });
     })
-
-      // print(Crowdin.localizedStringForKey('details_button'))
-      // this.setState({
-      //   status: 'native callback received',
-      //   message
-      // });
-    // Crowdin.sampleMethod('Testing', 123, (message) => {
-    //   this.setState({
-    //     status: 'native callback received',
-    //     message
-    //   });
-    // });
   }
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>☆Crowdin example☆</Text>
-        <Text style={styles.instructions}>STATUS: {this.state.status}</Text>
-        <Text style={styles.welcome}>☆NATIVE CALLBACK MESSAGE☆</Text>
-        <Text style={styles.instructions}>{this.state.message}</Text>
+      <LocalizationProvider>
+        <View style={styles.container}>
+          <Text style={styles.welcome}>Books App</Text>
+          <TextInput
+            style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
+            placeholder={translations.STEP1}
+          />
+          <Text style={styles.instructions}>STATUS: {this.state.status}</Text>
+          <Text style={styles.welcome}>☆NATIVE CALLBACK MESSAGE☆</Text>
+          <Text style={styles.instructions}>{this.state.message}</Text>
 
-        <Button
+          <Button
             onPress={() => {
               this.setState({ androidMessage: Crowdin.getString('home') });
             }}
             title={"Get Text from Android!"}
           />
 
-        <Text style={styles.instructions}>{this.state.androidMessage}</Text>
-      </View>
+          <Text style={styles.instructions}>{this.state.androidMessage}</Text>
+        </View>
+      </LocalizationProvider>
     );
   }
 }
