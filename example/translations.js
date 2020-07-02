@@ -1,23 +1,20 @@
 import LocalizedStrings from 'react-native-localization';
+import Crowdin from 'react-native-crowdin';
+
+import en from './en.json'
+import de from './de.json'
+
 export const DEFAULT_LANGUAGE = 'en';
 
+Crowdin.initWithHashString('00ff5d733fea380408ddc27uo3a', DEFAULT_LANGUAGE, (message) => {
+  alert(message)
+  alert(Crowdin.getResourcesByLocale('de'))
+})
+
 const translations = {
-  en: {
-    WELCOME: 'Welcome to React',
-    STEP1: 'Step One',
-    SEE_CHANGES: 'See Your Changes',
-    CHANGE_LANGUAGE: 'Change Language',
-    LANGUAGE_SETTINGS: 'Change Language',
-    BACK: 'Back'
-  },
-  de: {
-    WELCOME: 'Willkommen bei React',
-    STEP1: '1. Schritt',
-    SEE_CHANGES: 'Änderungen ansehen',
-    CHANGE_LANGUAGE: 'Sprache wechseln',
-    LANGUAGE_SETTINGS: 'Sprache wechseln',
-    BACK: 'Zurück'
-  }
+  en: en,
+  // de: Crowdin.getResourcesByLocale('de')
+  de: de
 };
 
 export default new LocalizedStrings(translations);

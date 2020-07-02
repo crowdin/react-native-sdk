@@ -1,0 +1,10 @@
+{
+  "app_title": "[A] Bücher App",
+  "app_description": "[A] Eine Anwendung zum Erforschen und Bewerten von Büchern",
+  "book_name": "[A] Wissenschaft mit Croft",
+  "book_description": "[A] Eine fantastische Beschreibung",
+  "categories": "[A] Kategorien",
+  "category_novel": "[A] Neu",
+  "category_adventures": "[A] Abenteuer",
+  "category_science": "[A] Wissenschaft"
+}
