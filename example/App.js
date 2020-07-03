@@ -9,11 +9,23 @@
  */
 
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, Button } from 'react-native';
 import { LocalizationProvider } from './LocalizationContext.js';
-import translations  from './translations';
+import translations, {DEFAULT_LANGUAGE} from './translations';
+import Crowdin from 'react-native-crowdin';
 
 export default class App extends Component<{}> {
+
+  componentDidMount() {
+    Crowdin.initWithHashString('40e1fd6addcf9d5eb3ea547uo3a', DEFAULT_LANGUAGE, (message) => {
+      alert('callback received');
+    })
+  }
+
+  updateLocalization() {
+    alert(Crowdin.getResources());
+  }
+
   render() {
     return (
       <LocalizationProvider>
@@ -29,6 +41,16 @@ export default class App extends Component<{}> {
           <Text style={styles.category}>{translations.category_novel}</Text>
           <Text style={styles.category}>{translations.category_adventures}</Text>
           <Text style={styles.category}>{translations.category_science}</Text>
+          <View style={styles.buttonContainer}>
+            <Button
+              type="solid"
+              color="#263238"
+              onPress={() => {
+                this.updateLocalization();
+              }}
+              title={"Download translations"}
+            />
+          </View>
         </View>
       </LocalizationProvider>
     );
@@ -77,5 +99,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#fffccc',
     padding: 5,
     margin: 5
-  }
+  },
+  buttonContainer: {
+    margin: 20,
+  },
 });
