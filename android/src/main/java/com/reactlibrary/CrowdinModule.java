@@ -1,7 +1,5 @@
 package com.reactlibrary;
 
-import android.util.Log;
-
 import androidx.annotation.NonNull;
 
 import com.crowdin.platform.Crowdin;
@@ -68,7 +66,6 @@ public class CrowdinModule extends ReactContextBaseJavaModule {
         if (languageCode.isEmpty()) {
             languageCode = ExtensionsKt.getFormattedCode(Locale.getDefault());
         }
-
         return Crowdin.getString(languageCode, key);
     }
 
@@ -78,11 +75,10 @@ public class CrowdinModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod(isBlockingSynchronousMethod = true)
-    public void getResourcesByLocale(@NonNull String languageCode) {
+    public String getResourcesByLocale(@NonNull String languageCode) {
         Locale locale = getLocaleForLanguageCode(languageCode);
         String formattedCode = ExtensionsKt.getFormattedCode(locale);
-        Log.d(CrowdinModule.class.getSimpleName(), languageCode);
-        Crowdin.getResources(formattedCode);
+        return Crowdin.getResources(formattedCode);
     }
 
     private Locale getLocaleForLanguageCode(String languageCode) {

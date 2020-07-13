@@ -23,7 +23,7 @@ export default class App extends Component<{}> {
   }
 
   updateLocalization() {
-    alert(Crowdin.getResources());
+    alert(Crowdin.getResourcesByLocale('de'));
   }
 
   render() {
