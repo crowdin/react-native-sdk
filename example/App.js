@@ -38,9 +38,11 @@ export default class App extends Component<{}> {
             <Text>{translations.book_description}</Text>
           </View>
           <Text style={styles.categories}>{translations.categories}</Text>
-          <Text style={styles.category}>{translations.category_novel}</Text>
-          <Text style={styles.category}>{translations.category_adventures}</Text>
-          <Text style={styles.category}>{translations.category_science}</Text>
+          <View style={styles.categoriesContainer}>
+            <Text style={styles.category}>{translations.category_novel}</Text>
+            <Text style={styles.category}>{translations.category_adventures}</Text>
+            <Text style={styles.category}>{translations.category_science}</Text>
+          </View>
           <View style={styles.buttonContainer}>
             <Button
               type="solid"
@@ -63,6 +65,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#eceff1',
     padding: 20
+  },
+  categoriesContainer: {
+    flexDirection:'row',
+    flexWrap:'wrap'
   },
   heading: {
     fontWeight: 'bold',

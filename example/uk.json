@@ -1,0 +1,10 @@
+{
+  "app_title": "Програма для книг",
+  "app_description": "Застосування для пошуку та оцінювання книг",
+  "book_name": "Наука з Крофтом",
+  "book_description": "Деякий фантастичний опис",
+  "categories": "Категорії",
+  "category_novel": "Роман",
+  "category_adventures": "Пригоди",
+  "category_science": "Наука"
+}
