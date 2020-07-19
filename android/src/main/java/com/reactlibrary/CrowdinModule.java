@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 import com.crowdin.platform.Crowdin;
 import com.crowdin.platform.CrowdinConfig;
 import com.crowdin.platform.LoadingStateListener;
+import com.crowdin.platform.ResourcesCallback;
 import com.crowdin.platform.util.ExtensionsKt;
 import com.facebook.react.bridge.Callback;
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -62,37 +63,19 @@ public class CrowdinModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod(isBlockingSynchronousMethod = true)
-    public String getStringByLocale(@NonNull String languageCode, @NonNull String key) {
-        if (languageCode.isEmpty()) {
-            languageCode = ExtensionsKt.getFormattedCode(Locale.getDefault());
-        }
-        return Crowdin.getString(languageCode, key);
-    }
-
-    @ReactMethod(isBlockingSynchronousMethod = true)
     public String getResources() {
-        return Crowdin.getResources(Locale.getDefault().getLanguage());
+        return Crowdin.getResources();
     }
 
-    @ReactMethod(isBlockingSynchronousMethod = true)
-    public String getResourcesByLocale(@NonNull String languageCode) {
-        Locale locale = getLocaleForLanguageCode(languageCode);
+    @ReactMethod
+    public void getResourcesByLocale(@NonNull String languageCode, @NotNull final Callback callback) {
+        Locale locale = ExtensionsKt.getLocaleForLanguageCode(languageCode);
         String formattedCode = ExtensionsKt.getFormattedCode(locale);
-        return Crowdin.getResources(formattedCode);
-    }
-
-    private Locale getLocaleForLanguageCode(String languageCode) {
-        String code = Locale.getDefault().getLanguage();
-        Locale locale;
-        try {
-            String[] localeData = languageCode.split("-");
-            code = localeData[0];
-            String region = localeData[1];
-            locale = new Locale(code, region);
-        } catch (Exception ex) {
-            locale = new Locale(code);
-        }
-
-        return locale;
+        Crowdin.getResourcesByLocale(formattedCode, new ResourcesCallback() {
+            @Override
+            public void onDataReceived(@NotNull String json) {
+                callback.invoke(json);
+            }
+        });
     }
 }

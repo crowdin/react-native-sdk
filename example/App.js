@@ -17,13 +17,15 @@ import Crowdin from 'react-native-crowdin';
 export default class App extends Component<{}> {
 
   componentDidMount() {
-    Crowdin.initWithHashString('40e1fd6addcf9d5eb3ea547uo3a', DEFAULT_LANGUAGE, (message) => {
+    Crowdin.initWithHashString('7baba656b8751e2ca460a1876j9', DEFAULT_LANGUAGE, (message) => {
       alert('callback received');
     })
   }
 
   updateLocalization() {
-    alert(Crowdin.getResourcesByLocale('de'));
+    Crowdin.getResourcesByLocale('it', (message) => {
+        alert(message);
+    })
   }
 
   render() {
