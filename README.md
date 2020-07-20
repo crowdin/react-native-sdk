@@ -96,7 +96,7 @@ Import *Crowdin* dependency:
 
 Crowdin React Native SDK provides a set of methods that allows you to download localization from CDN and use it in your application.
 
-1. Initialization
+1. Initialization:
 
     ```javascript
     Crowdin.initWithHashString('distribution_hash', 'source_language_code', (messages) => { })
@@ -108,7 +108,7 @@ Crowdin React Native SDK provides a set of methods that allows you to download l
 
     - `messages` - An array of errors of library initialization or localization downloading. In case initialization success returns "Localization downloaded" message.
 
-2. Get localization resources for the current language
+2. Get localization resources for the current language:
 
     ```javascript
     Crowdin.getResources()
@@ -122,23 +122,25 @@ Crowdin React Native SDK provides a set of methods that allows you to download l
     {"language": "en", "strings": {...}, "arrays": {...}, "plurals": {...}}
     ```
 
-3. Get localizations for the specific language
+3. Get localizations for the specific language:
 
     ```javascript
-    Crowdin.getResourcesByLocale('target_language_code')
+    Crowdin.getResourcesByLocale('target_language_code', (data) => { })
     ```
 
     - `target_language_code` - [Language Codes](https://support.crowdin.com/api/language-codes/).
 
-    Returns all downloaded localization for the specified language in JSON format as a String.
+    Callback parameters:
 
-    -  Output example:
+    `data` - all downloaded localization for the specified language in JSON format as a String.
+
+    -  Example:
 
     ```
     {"language": "en", "strings": {...}, "arrays": {...}, "plurals": {...}}
     ```
 
-4. Get localized string by key:
+4. Get localized string by key for current locale:
 
     ```javascript
     Crowdin.getString('key')
