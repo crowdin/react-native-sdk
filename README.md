@@ -119,7 +119,7 @@ Crowdin React Native SDK provides a set of methods that allows you to download l
     -  Output example:
 
     ```
-    {"localization": "en", "plurals": {...}, "strings": {...}}
+    {"language": "en", "strings": {...}, "arrays": {...}, "plurals": {...}}
     ```
 
 3. Get localizations for the specific language
@@ -135,7 +135,7 @@ Crowdin React Native SDK provides a set of methods that allows you to download l
     -  Output example:
 
     ```
-    {"localization": "en", "plurals": {...}, "strings": {...}}
+    {"language": "en", "strings": {...}, "arrays": {...}, "plurals": {...}}
     ```
 
 4. Get localized string by key:
