@@ -15,17 +15,26 @@ import translations, {DEFAULT_LANGUAGE} from './translations';
 import Crowdin from 'react-native-crowdin';
 
 export default class App extends Component<{}> {
+  state = {};
 
-  componentDidMount() {
-    Crowdin.initWithHashString('7baba656b8751e2ca460a1876j9', DEFAULT_LANGUAGE, (message) => {
-      alert('callback received');
+  updateLocalization() {
+    Crowdin.initWithHashString('e11b2ae7041851c9f39ea77uo3a', DEFAULT_LANGUAGE, (message) => {});
+
+    Crowdin.getResourcesByLocale('uk', (data) => {
+        var response = JSON.parse(data);
+
+        translations.setContent(
+            Object.assign({}, translations.getContent(), {
+                uk: response.strings
+            })
+        );
+
+        this.resetState();
     })
   }
 
-  updateLocalization() {
-    Crowdin.getResourcesByLocale('it', (message) => {
-        alert(message);
-    })
+  resetState = () => {
+    this.setState({});
   }
 
   render() {
@@ -52,7 +61,7 @@ export default class App extends Component<{}> {
               onPress={() => {
                 this.updateLocalization();
               }}
-              title={"Download translations"}
+              title={"Download Crowdin translations"}
             />
           </View>
         </View>

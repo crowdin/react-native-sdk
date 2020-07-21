@@ -8,6 +8,8 @@ The SDK is using the [Android SDK](https://github.com/crowdin/mobile-sdk-android
 
 * Over-The-Air Content Delivery – the localized content can be sent to the application from the project whenever needed.
 
+It allows you to easily download localization from Crowdin and use it in your application.
+
 ## Status
 
 // TODO
@@ -147,6 +149,32 @@ Crowdin React Native SDK provides a set of methods that allows you to download l
     ```
 
     - `key` - localization string key.
+
+5. Example of how to Update / Overwrite Locale with the `react-native-localization`:
+
+```js
+updateLocalization() {
+    Crowdin.initWithHashString('distribution_hash', DEFAULT_LANGUAGE, (message) => {});
+
+    Crowdin.getResourcesByLocale('uk', (data) => {
+        var response = JSON.parse(data);
+
+        translations.setContent(
+            Object.assign({}, translations.getContent(), {
+                uk: response.strings
+            })
+        );
+
+        this.resetState();
+    })
+}
+
+resetState = () => {
+    this.setState({});
+}
+```
+
+For more details see the [App.js](/example/App.js) class.
 
 ## Limitations
 
