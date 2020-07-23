@@ -5,15 +5,26 @@
 
 RCT_EXPORT_MODULE()
 
+static NSString *hashStrig;
+
 RCT_EXPORT_METHOD(initWithHashString:(NSString *)hashString sourceLanguage:(NSString *)sourceLanguage callback:(RCTResponseSenderBlock)callback) {
+    hashStrig = hashString;
     CrowdinProviderConfig *providerConfig = [[CrowdinProviderConfig alloc] initWithHashString:hashString sourceLanguage:sourceLanguage];
     CrowdinSDKConfig *config = [[CrowdinSDKConfig config] withCrowdinProviderConfig:providerConfig];
     [CrowdinSDK startWithConfig: config];
-    [CrowdinSDK addDownloadHandler:^{
+    __block NSInteger downloadHandler = -1;
+    downloadHandler = [CrowdinSDK addDownloadHandler:^{
+        [CrowdinSDK removeDownloadHandler:downloadHandler];
         callback(@[@"Localization downloaded"]);
     }];
-    [CrowdinSDK addErrorUpdateHandler:^(NSArray<NSError *> * _Nonnull errors) {
-        callback(errors);
+    __block NSInteger errorHandler = -1;
+    errorHandler = [CrowdinSDK addErrorUpdateHandler:^(NSArray<NSError *> * _Nonnull errors) {
+        [CrowdinSDK removeDownloadHandler:downloadHandler];
+        NSMutableArray *errorStrings = [NSMutableArray new];
+        for (NSError *error in errors) {
+            [errorStrings addObject:error.localizedDescription];
+        }
+        callback(errorStrings);
     }];
 }
 
@@ -59,6 +70,14 @@ RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD(getString:(NSString *)key) {
 
 RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD(getResourcesByLocale:(NSString *)locale) {
     return [CrowdinSDK localizationDictionaryFor:locale];
+}
+
+RCT_EXPORT_METHOD(getResourcesByLocale:(NSString *)locale callback:(RCTResponseSenderBlock)callback) {
+    [CrowdinSDK localizationDictionaryFor:locale hashString:hashStrig completion:^(NSDictionary * _Nonnull locale) {
+        callback(@[[self stringFormDictionary:locale]]);
+    } errorHandler:^(NSError * _Nonnull error) {
+        callback(@[error]);
+    }];
 }
 
 RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD(getResourcesDictionaryByLocale:(NSString *)language) {

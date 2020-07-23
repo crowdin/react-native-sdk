@@ -3,40 +3,40 @@ PODS:
   - boost-for-react-native (1.63.0)
   - CocoaAsyncSocket (7.6.4)
   - CocoaLibEvent (1.0.0)
-  - CrowdinSDK (1.1.1):
-    - CrowdinSDK/Core (= 1.1.1)
-    - CrowdinSDK/CrowdinProvider (= 1.1.1)
-  - CrowdinSDK/Core (1.1.1)
-  - CrowdinSDK/CrowdinAPI (1.1.1):
+  - CrowdinSDK (1.1.3):
+    - CrowdinSDK/Core (= 1.1.3)
+    - CrowdinSDK/CrowdinProvider (= 1.1.3)
+  - CrowdinSDK/Core (1.1.3)
+  - CrowdinSDK/CrowdinAPI (1.1.3):
     - BaseAPI (= 0.1.7)
     - Starscream (~> 3.1.0)
-  - CrowdinSDK/CrowdinProvider (1.1.1):
+  - CrowdinSDK/CrowdinProvider (1.1.3):
     - CrowdinSDK/Core
     - CrowdinSDK/CrowdinAPI
-  - CrowdinSDK/IntervalUpdate (1.1.1):
+  - CrowdinSDK/IntervalUpdate (1.1.3):
     - CrowdinSDK/Core
     - CrowdinSDK/CrowdinAPI
     - CrowdinSDK/CrowdinProvider
-  - CrowdinSDK/LoginFeature (1.1.1):
+  - CrowdinSDK/LoginFeature (1.1.3):
     - BaseAPI (= 0.1.7)
     - CrowdinSDK/Core
     - CrowdinSDK/CrowdinAPI
     - CrowdinSDK/CrowdinProvider
-  - CrowdinSDK/RealtimeUpdate (1.1.1):
+  - CrowdinSDK/RealtimeUpdate (1.1.3):
     - CrowdinSDK/Core
     - CrowdinSDK/CrowdinAPI
     - CrowdinSDK/CrowdinProvider
     - CrowdinSDK/LoginFeature
-  - CrowdinSDK/RefreshLocalization (1.1.1):
+  - CrowdinSDK/RefreshLocalization (1.1.3):
     - CrowdinSDK/Core
     - CrowdinSDK/CrowdinAPI
     - CrowdinSDK/CrowdinProvider
-  - CrowdinSDK/Screenshots (1.1.1):
+  - CrowdinSDK/Screenshots (1.1.3):
     - CrowdinSDK/Core
     - CrowdinSDK/CrowdinAPI
     - CrowdinSDK/CrowdinProvider
     - CrowdinSDK/LoginFeature
-  - CrowdinSDK/Settings (1.1.1):
+  - CrowdinSDK/Settings (1.1.3):
     - CrowdinSDK/Core
     - CrowdinSDK/CrowdinAPI
     - CrowdinSDK/CrowdinProvider
@@ -339,6 +339,12 @@ PODS:
     - React-cxxreact (= 0.62.2)
     - React-jsi (= 0.62.2)
     - ReactCommon/callinvoker (= 0.62.2)
+  - ReactNativeLocalization (2.1.6):
+    - React
+  - RNCAsyncStorage (1.11.0):
+    - React
+  - RNLocalize (1.4.0):
+    - React
   - Starscream (3.1.1)
   - Yoga (1.14.0)
   - YogaKit (1.18.1):
@@ -392,6 +398,9 @@ DEPENDENCIES:
   - React-RCTVibration (from `../node_modules/react-native/Libraries/Vibration`)
   - ReactCommon/callinvoker (from `../node_modules/react-native/ReactCommon`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - ReactNativeLocalization (from `../node_modules/react-native-localization`)
+  - "RNCAsyncStorage (from `../node_modules/@react-native-community/async-storage`)"
+  - RNLocalize (from `../node_modules/react-native-localize`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -463,6 +472,12 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/Libraries/Vibration"
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  ReactNativeLocalization:
+    :path: "../node_modules/react-native-localization"
+  RNCAsyncStorage:
+    :path: "../node_modules/@react-native-community/async-storage"
+  RNLocalize:
+    :path: "../node_modules/react-native-localize"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -471,7 +486,7 @@ SPEC CHECKSUMS:
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
   CocoaAsyncSocket: 694058e7c0ed05a9e217d1b3c7ded962f4180845
   CocoaLibEvent: 2fab71b8bd46dd33ddb959f7928ec5909f838e3f
-  CrowdinSDK: 79b63e4a5edc0dd1496f2a07e6d62e6b5f26cb1b
+  CrowdinSDK: 1d772e9b879ed6260ea57e9cf5c2aaad9483833e
   DoubleConversion: 5805e889d232975c086db112ece9ed034df7a0b2
   FBLazyVector: 4aab18c93cd9546e4bfed752b4084585eca8b245
   FBReactNativeSpec: 5465d51ccfeecb7faa12f9ae0024f2044ce4044e
@@ -505,10 +520,13 @@ SPEC CHECKSUMS:
   React-RCTText: fae545b10cfdb3d247c36c56f61a94cfd6dba41d
   React-RCTVibration: 4356114dbcba4ce66991096e51a66e61eda51256
   ReactCommon: ed4e11d27609d571e7eee8b65548efc191116eb3
+  ReactNativeLocalization: 9abfb1717d6c6f2e3a4e444c4402d52acbf784cc
+  RNCAsyncStorage: db711e29e5e0500d9bd21aa0c2e397efa45302b1
+  RNLocalize: fc27ee5878ce5a3af73873fb2d8e866e0d1e6d84
   Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
   Yoga: 3ebccbdd559724312790e7742142d062476b698e
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: 56c2537f71f3f02200d6918c542a8e89a0b422fa
+PODFILE CHECKSUM: 06c41b56ba7447cbb90f2565975ed64a7ed6856e
 
 COCOAPODS: 1.9.3
