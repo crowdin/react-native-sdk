@@ -20,11 +20,11 @@ RCT_EXPORT_METHOD(initWithHashString:(NSString *)hashString sourceLanguage:(NSSt
     __block NSInteger errorHandler = -1;
     errorHandler = [CrowdinSDK addErrorUpdateHandler:^(NSArray<NSError *> * _Nonnull errors) {
         [CrowdinSDK removeDownloadHandler:downloadHandler];
-        NSMutableArray *errorStrings = [NSMutableArray new];
+        NSString *errorString = @"";
         for (NSError *error in errors) {
-            [errorStrings addObject:error.localizedDescription];
+            errorString = [errorString stringByAppendingFormat:@"\n %@", error.localizedDescription];
         }
-        callback(@[errorStrings, [NSNull null]]);
+        callback(@[errorString, [NSNull null]]);
     }];
 }
 
