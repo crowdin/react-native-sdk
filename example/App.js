@@ -18,11 +18,11 @@ export default class App extends Component<{}> {
   state = {};
 
   updateLocalization() {
-    Crowdin.initWithHashString('e11b2ae7041851c9f39ea77uo3a', DEFAULT_LANGUAGE, (message) => {});
+    Crowdin.initWithHashString('e11b2ae7041851c9f39ea77uo3a', DEFAULT_LANGUAGE, (error, message) => {});
 
-    Crowdin.getResourcesByLocale('uk', (data) => {
+    Crowdin.getResourcesByLocale('uk', (error, data) => {
         var response = JSON.parse(data);
-
+        console.log(response.strings)
         translations.setContent(
             Object.assign({}, translations.getContent(), {
                 uk: response.strings

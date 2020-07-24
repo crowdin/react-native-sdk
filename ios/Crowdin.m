@@ -15,7 +15,7 @@ RCT_EXPORT_METHOD(initWithHashString:(NSString *)hashString sourceLanguage:(NSSt
     __block NSInteger downloadHandler = -1;
     downloadHandler = [CrowdinSDK addDownloadHandler:^{
         [CrowdinSDK removeDownloadHandler:downloadHandler];
-        callback(@[@"Localization downloaded"]);
+        callback(@[[NSNull null], @"Localization downloaded"]);
     }];
     __block NSInteger errorHandler = -1;
     errorHandler = [CrowdinSDK addErrorUpdateHandler:^(NSArray<NSError *> * _Nonnull errors) {
@@ -24,7 +24,7 @@ RCT_EXPORT_METHOD(initWithHashString:(NSString *)hashString sourceLanguage:(NSSt
         for (NSError *error in errors) {
             [errorStrings addObject:error.localizedDescription];
         }
-        callback(errorStrings);
+        callback(@[errorStrings, [NSNull null]]);
     }];
 }
 
@@ -74,9 +74,9 @@ RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD(getResourcesByLocale:(NSString *)locale) 
 
 RCT_EXPORT_METHOD(getResourcesByLocale:(NSString *)locale callback:(RCTResponseSenderBlock)callback) {
     [CrowdinSDK localizationDictionaryFor:locale hashString:hashStrig completion:^(NSDictionary * _Nonnull locale) {
-        callback(@[[self stringFormDictionary:locale]]);
+        callback(@[[NSNull null], [self stringFormDictionary:locale]]);
     } errorHandler:^(NSError * _Nonnull error) {
-        callback(@[error]);
+        callback(@[error, [NSNull null]]);
     }];
 }
 
