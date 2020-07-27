@@ -38,11 +38,11 @@ React Native 0.6+
 
 - Using npm:
 
-   `npm install react-native-crowdin --save`
+   `npm install @crowdin/react-native-sdk --save`
 
 - Using [React Native CLI](https://github.com/react-native-community/cli):
 
-   `react-native link react-native-crowdin`
+   `react-native link @crowdin/react-native-sdk`
 
 ## Example Project
 
@@ -96,7 +96,7 @@ To manage distributions open the needed project and go to *Over-The-Air Content 
 Import *Crowdin* dependency:
 
    ```javascript
-   import Crowdin from 'react-native-crowdin';
+   import Crowdin from '@crowdin/react-native-sdk';
    ```
 
 Crowdin React Native SDK provides a set of methods that allows you to download localization from CDN and use it in your application.
