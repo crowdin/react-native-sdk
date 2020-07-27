@@ -10,7 +10,11 @@
     "url": "https://github.com/crowdin/react-native-sdk"
   },
   "keywords": [
-    "react-native", "crowdin", "localization", "translate", "content-delivery"
+    "react-native",
+    "crowdin",
+    "localization",
+    "translate",
+    "content-delivery"
   ],
   "author": {
     "name": "Crowdin",
