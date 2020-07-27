@@ -1,1 +1,12 @@
 example
+.gitignore
+.gitattributes
+.idea
+.vscode
+yarn.lock
+package-lock.json
+CODE_OF_CONDUCT.md
+CONTRIBUTING.md
+README.md
+node_modules
+azure-pipelines.yml

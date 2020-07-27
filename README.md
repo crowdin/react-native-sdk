@@ -12,8 +12,11 @@ It allows you to easily download localization from Crowdin and use it in your ap
 
 ## Status
 
-// TODO
-npm badge, downloads, issues, license
+[![npm](https://img.shields.io/npm/v/@crowdin/react-native-sdk?logo=npm&cacheSeconds=1800)](https://www.npmjs.com/package/@crowdin/crowdin-api-client)
+[![npm](https://img.shields.io/npm/dt/@crowdin/react-native-sdk?cacheSeconds=1800)](https://www.npmjs.com/package/@crowdin/crowdin-api-client)
+[![GitHub issues](https://img.shields.io/github/issues-raw/crowdin/react-native-sdk?cacheSeconds=1800)](https://github.com/crowdin/react-native-sdk/issues)
+[![GitHub contributors](https://img.shields.io/github/contributors/crowdin/react-native-sdk?cacheSeconds=5000)](https://github.com/crowdin/react-native-sdk/graphs/contributors)
+[![GitHub](https://img.shields.io/github/license/crowdin/react-native-sdk?cacheSeconds=150000)](https://github.com/crowdin/react-native-sdk/blob/master/LICENSE)
 
 ## Table of Contents
 * [Requirements](#requirements)
