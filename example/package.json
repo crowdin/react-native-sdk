@@ -10,10 +10,10 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@crowdin/react-native-sdk": "^0.1.0",
     "@react-native-community/async-storage": "^1.11.0",
     "react": "16.11.0",
     "react-native": "0.62.2",
-    "react-native-crowdin": "file:../",
     "react-native-localization": "^2.1.6",
     "react-native-localize": "^1.4.0"
   },

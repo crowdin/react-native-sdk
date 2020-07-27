@@ -12,7 +12,7 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, Image, Button } from 'react-native';
 import { LocalizationProvider } from './LocalizationContext.js';
 import translations, {DEFAULT_LANGUAGE} from './translations';
-import Crowdin from 'react-native-crowdin';
+import Crowdin from '@crowdin/react-native-sdk';
 
 export default class App extends Component<{}> {
   state = {};

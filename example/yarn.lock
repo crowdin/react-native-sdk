@@ -721,6 +721,11 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
+"@crowdin/react-native-sdk@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@crowdin/react-native-sdk/-/react-native-sdk-0.1.0.tgz#5dc5233dabe3a8fc8768d6f8853cde4ec632bd88"
+  integrity sha512-o/qKbduo/6nHx58RJxZsNVcophpxgop37iaC5UNwIpmqx0VmnCUdtYmKoq+oEIlbRdevbqV9S+92e94JQuJG/g==
+
 "@hapi/address@2.x.x":
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/@hapi/address/-/address-2.1.4.tgz#5d67ed43f3fd41a69d4b9ff7b56e7c0d1d0a81e5"
@@ -5443,9 +5448,6 @@ react-localization@^1.0.14:
   integrity sha512-s+yK3EqPUhN8kAfUIoA5m0a0iGOvxB3DrvngYnSZNLRQRX+yS7LYfTuKT66KVa3Cr6EP4iGRtw4XRqpsi1ZLjw==
   dependencies:
     localized-strings "^0.2.0"
-
-"react-native-crowdin@file:..":
-  version "1.0.0"
 
 react-native-localization@^2.1.6:
   version "2.1.6"
