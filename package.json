@@ -1,23 +1,20 @@
 {
-  "name": "react-native-crowdin",
-  "title": "React Native Crowdin",
+  "name": "@crowdin/react-native-sdk",
+  "title": "Crowdin React Native SDK",
   "version": "1.0.0",
-  "description": "TODO",
+  "description": "Crowdin React Native SDK delivers all new translations from Crowdin project to the application immediately",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/github_account/react-native-crowdin.git",
-    "baseUrl": "https://github.com/github_account/react-native-crowdin"
+    "url": "https://github.com/crowdin/react-native-sdk"
   },
   "keywords": [
-    "react-native"
+    "react-native", "crowdin", "localization", "translate", "content-delivery"
   ],
   "author": {
-    "name": "Your Name",
-    "email": "yourname@email.com"
+    "name": "Crowdin",
+    "email": "support@crowdin.com"
   },
   "license": "MIT",
   "licenseFilename": "LICENSE",
