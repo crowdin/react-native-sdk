@@ -1,0 +1,10 @@
+{
+  "app_title": "Books App",
+  "app_description": "An application to discover and rate books",
+  "book_name": "Science with Croft",
+  "book_description": "Some fantastic description",
+  "categories": "Categories",
+  "category_novel": "Novel",
+  "category_adventures": "Adventures",
+  "category_science": "Science"
+}
