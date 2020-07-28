@@ -50,6 +50,8 @@ To discover how React Native SDK is integrated into a real project see the [Exam
 
 This example uses the [React Native Localization](https://www.npmjs.com/package/react-native-localization) package for interface localization.
 
+[<p align='center'><img src='https://github.com/crowdin/react-native-sdk/blob/docs/example-project.gif' height='400'/></p>](#)
+
 To run the example project, first clone the repo, fill in SDK configuration in the *App* class and run a project in the *example* directory:
 
 - Navigate to the *example* directory:
