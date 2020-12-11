@@ -1,7 +1,7 @@
 {
   "name": "@crowdin/react-native-sdk",
   "title": "Crowdin React Native SDK",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Crowdin React Native SDK delivers all new translations from Crowdin project to the application immediately",
   "main": "index.js",
   "scripts": {},
