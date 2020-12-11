@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.dependency "React"
-  s.dependency "CrowdinSDK"
-  s.dependency "CrowdinSDK/Settings"
+  s.dependency "CrowdinSDK", '~> 1.1.7'
+  s.dependency "CrowdinSDK/Settings", '~> 1.1.7'
 end
 
