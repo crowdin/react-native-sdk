@@ -70,12 +70,22 @@ public class CrowdinModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void getResourcesByLocale(@NonNull String languageCode, @NotNull final Callback callback) {
         Locale locale = ExtensionsKt.getLocaleForLanguageCode(languageCode);
-        String formattedCode = ExtensionsKt.getFormattedCode(locale);
+        String formattedCode = getFormattedCode(locale);
         Crowdin.getResourcesByLocale(formattedCode, new ResourcesCallback() {
             @Override
             public void onDataReceived(@NotNull String json) {
                 callback.invoke(json);
             }
         });
+    }
+
+    private String getFormattedCode(@NotNull Locale locale) {
+        String language = locale.getLanguage();
+        String country = locale.getCountry();
+        if (country.isEmpty()) {
+            return language;
+        } else {
+            return language + "-" + country;
+        }
     }
 }
