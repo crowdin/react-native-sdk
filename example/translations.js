@@ -1,8 +1,8 @@
 import LocalizedStrings from 'react-native-localization';
 
-import en from './en.json'
-import de from './de.json'
-import uk from './uk.json'
+import en from './en.json';
+import de from './de.json';
+import uk from './uk.json';
 
 export const DEFAULT_LANGUAGE = 'en';
 

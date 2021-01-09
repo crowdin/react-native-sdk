@@ -8,9 +8,9 @@
  * https://github.com/facebook/react-native
  */
 
-import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image, Button } from 'react-native';
-import { LocalizationProvider } from './LocalizationContext.js';
+import React, {Component} from 'react';
+import {StyleSheet, Text, View, Image, Button} from 'react-native';
+import {LocalizationProvider} from './LocalizationContext.js';
 import translations, {DEFAULT_LANGUAGE} from './translations';
 import Crowdin from '@crowdin/react-native-sdk';
 
@@ -18,24 +18,28 @@ export default class App extends Component<{}> {
   state = {};
 
   updateLocalization() {
-    Crowdin.initWithHashString('fcaf0dd82870a8dfbcc5f9876j9', DEFAULT_LANGUAGE, (message) => {});
+    Crowdin.initWithHashString(
+      'fcaf0dd82870a8dfbcc5f9876j9',
+      DEFAULT_LANGUAGE,
+      (message) => {},
+    );
 
     Crowdin.getResourcesByLocale('uk', (data) => {
-        var response = JSON.parse(data);
+      var response = JSON.parse(data);
 
-        translations.setContent(
-            Object.assign({}, translations.getContent(), {
-                uk: response.strings
-            })
-        );
+      translations.setContent(
+        Object.assign({}, translations.getContent(), {
+          uk: response.strings,
+        }),
+      );
 
-        this.resetState();
-    })
+      this.resetState();
+    });
   }
 
   resetState = () => {
     this.setState({});
-  }
+  };
 
   render() {
     return (
@@ -51,7 +55,9 @@ export default class App extends Component<{}> {
           <Text style={styles.categories}>{translations.categories}</Text>
           <View style={styles.categoriesContainer}>
             <Text style={styles.category}>{translations.category_novel}</Text>
-            <Text style={styles.category}>{translations.category_adventures}</Text>
+            <Text style={styles.category}>
+              {translations.category_adventures}
+            </Text>
             <Text style={styles.category}>{translations.category_science}</Text>
           </View>
           <View style={styles.buttonContainer}>
@@ -61,7 +67,7 @@ export default class App extends Component<{}> {
               onPress={() => {
                 this.updateLocalization();
               }}
-              title={"Download Crowdin translations"}
+              title={'Download Crowdin translations'}
             />
           </View>
         </View>
@@ -75,16 +81,16 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     backgroundColor: '#eceff1',
-    padding: 20
+    padding: 20,
   },
   categoriesContainer: {
-    flexDirection:'row',
-    flexWrap:'wrap'
+    flexDirection: 'row',
+    flexWrap: 'wrap',
   },
   heading: {
     fontWeight: 'bold',
     fontSize: 30,
-    marginBottom: 10
+    marginBottom: 10,
   },
   description: {
     fontSize: 20,
@@ -97,8 +103,8 @@ const styles = StyleSheet.create({
     borderRadius: 35,
     marginTop: 20,
     marginBottom: 30,
-    shadowColor: "#2e3340",
-    backgroundColor: "#6fcf97",
+    shadowColor: '#2e3340',
+    backgroundColor: '#6fcf97',
     shadowOffset: {
       width: 20,
       height: 20,
@@ -115,7 +121,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     backgroundColor: '#fffccc',
     padding: 5,
-    margin: 5
+    margin: 5,
   },
   buttonContainer: {
     margin: 20,
