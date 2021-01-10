@@ -11,30 +11,22 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View, Image, Button} from 'react-native';
 import {LocalizationProvider} from './LocalizationContext.js';
-import translations, {DEFAULT_LANGUAGE} from './translations';
-import Crowdin from '@crowdin/react-native-sdk';
+import translations from './translations';
+import OtaClient from '@crowdin/ota-client';
+
+const otaClient = new OtaClient('{hash}');
 
 export default class App extends Component<{}> {
   state = {};
 
-  updateLocalization() {
-    Crowdin.initWithHashString(
-      'fcaf0dd82870a8dfbcc5f9876j9',
-      DEFAULT_LANGUAGE,
-      (message) => {},
+  async updateLocalization() {
+    const strings = await otaClient.getStrings();
+    translations.setContent(
+      Object.assign({}, translations.getContent(), {
+        uk: strings.uk,
+      }),
     );
-
-    Crowdin.getResourcesByLocale('uk', (data) => {
-      var response = JSON.parse(data);
-
-      translations.setContent(
-        Object.assign({}, translations.getContent(), {
-          uk: response.strings,
-        }),
-      );
-
-      this.resetState();
-    });
+    this.resetState();
   }
 
   resetState = () => {
@@ -64,8 +56,8 @@ export default class App extends Component<{}> {
             <Button
               type="solid"
               color="#263238"
-              onPress={() => {
-                this.updateLocalization();
+              onPress={async () => {
+                await this.updateLocalization();
               }}
               title={'Download Crowdin translations'}
             />
