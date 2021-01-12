@@ -181,6 +181,11 @@ resetState = () => {
 
 For more details see the [App.js](/example/App.js) class.
 
+### OTA JavaScript client usage
+
+For React Native applications there is also a possibility to use [JS client](https://github.com/crowdin/ota-client-js) without any native modules.
+[Here](https://github.com/crowdin/react-native-sdk/tree/feat/ota-client-js-integration/example) you can find example listed above where this library is used.
+
 ## Limitations
 
 Currently, Screenshots and Real-Time Preview features are not available.
